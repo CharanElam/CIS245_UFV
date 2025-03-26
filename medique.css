@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+     min-height: 100vh;
+    margin: 0;
+    background: 
+        url("bgpattern.png") repeat,
+        linear-gradient(to bottom, #45B6CC , #97CFC1);
+    background-size: auto, cover;
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #383636;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+}
+
+.wrapper {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+main {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: block;
+}
+
+.header-container {
+    position: relative;
+    width: 100vw;
+    height: auto;
+    left: 0;
+}
+
+.header-bar {
+    position: absolute;
+    width: 100vw;
+    height: 30px;
+    top: -12px;
+    background-color: #F5F5F5;
+    z-index:-1;
+    left: 0;
+}
+
+.header-image {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 80px;
+}
+
+header {
+    color: #383636;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif
+}
+
+h1, h2, h3 {
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+    color: #383636;
+}
+
+h1 {
+    font-size: 1.5em;
+    text-align: left;
+}
+
+h2 {
+    font-size: 1em;
+    text-align: left;
+}
+
+footer {
+    color: #383636;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+    text-align: center;
+    padding-top: 3em;
+    padding-bottom: 1em;
+    margin-top: auto;
+}
+
+footer a {
+    text-decoration: underline;
+}
+
+footer a:link, footer a:visited {
+    color: #383636;
+}
+
+form {
+    flex: 1 1 50;
+    width: 60%;
+    color: #383636;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+    display: grid;
+    grid-template-columns: 10em 1fr;
+    grid-gap: 1em;
+    margin-left: 30px;
+    margin-right: 50px;
+    margin-top: 10px;
+}
+
+form [type="submit"] {
+    grid-column: 2;
+    width: 9em;
+}
+
+p {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    color: #383636;
+}
+
+.image-top-right {
+    position: absolute;
+    top: -16px;
+    right: 20px;
+    width: auto; 
+    height: auto;
+    z-index: 10;
+}
+
+.table-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.table-container {
+    background: #F5F5F5;
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    margin: 20px auto;
+    box-sizing: border-box;
+}
+
+table {
+    margin: auto;
+    border-style: none;
+    max-width: 100%;
+    min-width: 100%;
+    font-size: .75em;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    width: auto;
+}
+
+th {
+    background: #45B6CC;
+    color: #F5F5F5;
+    font-size: larger;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #F5F5F5;
+}
+
+td {
+    color: #383636;
+    text-align: center;
+    width: auto;
+}
