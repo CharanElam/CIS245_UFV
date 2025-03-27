@@ -3,7 +3,7 @@
 }
 
 html {
-     min-height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background: 
         url("bgpattern.png") repeat,
@@ -112,36 +112,132 @@ footer a:link, footer a:visited {
     color: #383636;
 }
 
-form {
-    flex: 1 1 50;
-    width: 60%;
-    color: #383636;
-    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
-    display: grid;
-    grid-template-columns: 10em 1fr;
-    grid-gap: 1em;
-    margin-left: 30px;
-    margin-right: 50px;
-    margin-top: 10px;
+.form-container {
+    background: #F5F5F5;
+    padding: 25px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px; 
+    margin: 20px auto;
+    box-sizing: border-box;
+    overflow: auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
 }
 
-form [type="submit"] {
-    grid-column: 2;
-    width: 9em;
+form {
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+    margin: 0;
+}
+
+form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+form label {
+    font-weight: normal;
+    color: #383636;
+    font-size: 16px;
+}
+
+form table th {
+    text-align: left;
+    font-weight: normal;
+    background-color: #f5f5f5;
+}
+
+form table td {
+    padding: 10px;
+}
+
+form button {
+    padding: 10px 20px;
+    width: 200px;
+    margin-top: 15px;
+    background-color: #97cfc1;
+    color: #383636;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+}
+
+form button:hover {
+    background-color: #45b6cc;
+}
+
+form table tr:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+form table tr:nth-child(even) {
+    background-color: #f5f5f5;
 }
 
 p {
-    font-family: font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
     color: #383636;
+}
+
+.text-container {
+    padding: 25px;
+    width: 470px;
+    height: 90px;
+    margin: 20px auto;
+    margin-bottom: 25px;
+    color: #383636;
+    font-size: 18px;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
 }
 
 .image-top-right {
     position: absolute;
-    top: -16px;
+    top: -12px;
     right: 20px;
     width: auto; 
     height: auto;
-    z-index: 10;
+    z-index: -1;
+}
+
+.image-top-left {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    width: auto; 
+    height: auto;
+    z-index: -1;
+}
+
+.text-name-left {
+    color: #383636;
+    position: absolute;
+    top: -57px;
+    left: 220px;
+    color: #383636;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+}
+
+.text-logout-right {
+    color: #383636;
+    position: absolute;
+    top: -13px;
+    right: 20px;
+    color: #383636;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: underline;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+    transition: color 0.2s ease;
+}
+
+.text-logout-right:hover {
+    color: #fcf5e3;
 }
 
 .table-wrapper {
@@ -152,11 +248,13 @@ p {
 
 .table-container {
     background: #F5F5F5;
-    padding: 20px;
+    padding: 25px;
     border-radius: 15px;
     width: 100%;
+    max-height: 700px;
     margin: 20px auto;
     box-sizing: border-box;
+    overflow: auto;
 }
 
 table {
@@ -164,8 +262,11 @@ table {
     border-style: none;
     max-width: 100%;
     min-width: 100%;
-    font-size: .75em;
+    font-size: 0.8em;
     border-collapse: collapse;
+    max-height: 350px;
+    overflow-y: auto;
+    display: block;
 }
 
 th, td {
@@ -192,4 +293,73 @@ td {
     color: #383636;
     text-align: center;
     width: auto;
+}
+
+
+.hori-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 25px;
+}
+
+.verti-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.button {
+    padding: 10px 20px;
+    width: 100px;
+    background-color: #97cfc1;
+    color: #383636;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+}
+
+.button:hover {
+    background-color: #45b6cc;
+}
+
+.button-add {
+    padding: 10px 20px;
+    width: 100px;
+    background-color: #45B6CC;
+    color: #f5f5f5;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+}
+
+.button-add:hover {
+    background-color: #a3d39c;
+    color: #383636;
+}
+
+.button-remove {
+    padding: 10px 20px;
+    width: 100px;
+    background-color: #45B6CC;
+    color: #f5f5f5;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+}
+
+.button-remove:hover {
+    background-color: #f69679;
+    color: #383636;
 }
