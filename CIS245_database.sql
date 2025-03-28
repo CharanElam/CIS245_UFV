@@ -26,11 +26,11 @@ staff_role ENUM("Staff", "Admin") NOT NULL
 CREATE TABLE IF NOT EXISTS queue(
 queue_id INT PRIMARY KEY,
 patient_id INT NOT NULL,
-queue_position INT AUTO_INCREMENT,
+queue_position INT,
 added_by INT DEFAULT 0,
 queue_date DATE NOT NULL,
 queue_time TIME NOT NULL,
-priority INT DEFAULT 0,
+priority INT,
 status ENUM("Completed", "Dropped") NOT NULL,
 FOREIGN KEY (patient_id) REFERENCES patients(patient_id),
 FOREIGN KEY (added_by) REFERENCES staff(staff_id)
