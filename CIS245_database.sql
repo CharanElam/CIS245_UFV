@@ -31,6 +31,7 @@ added_by INT DEFAULT 0,
 queue_date DATE NOT NULL,
 queue_time TIME NOT NULL,
 priority INT AUTO_INCREMENT,
+status ENUM("Completed", "Dropped") NOT NULL,
 FOREIGN KEY (patient_id) REFERENCES patients(patient_id),
 FOREIGN KEY (added_by) REFERENCES staff(staff_id)
 );
