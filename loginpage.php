@@ -14,46 +14,41 @@
             </header>
         
             <main>
-                <div class="text-container">
-                    <p>Skip the crowded waiting rooms and manage your time 
-                        better with <b>MediQueue</b>, a virtual queue system designed 
-                        for walk-in clinics.
-                    </p>
-                </div>
                 <div class="content-container">
                     <div class="table-wrapper">
-                        <img src="welcome_header.png" alt="Welcome" class="image-top-right">
+                        <img src="login_header.png" alt="Welcome" class="image-top-right">
                         <div class="table-container">
                             <table style="text-align: center; 
-                                                padding-left: 40px; 
-                                                font-size: 20px;
-                                                text-decoration: none;">
+                                          font-size: 20px;
+                                          text-decoration: none;">
                                 <tr>
                                     <td>
-                                        <b><u>Abbotsford Care Walk-In Clinic</u></b><br>
-                                        1234 Healthway Drive<br>
-                                        Abbotsford, BC V2T 4X5<br>
-                                        (604) 555-1234
+                                        filler text filler text
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="background-color: #F5F5F5;
                                         font-size: 25px;">
-                                        Today is <?php echo date("F j, Y"); ?>
-                                        <br> <br>
+                                        filler text filler text
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="loginpage.php">
-                                            <button class="button">Click to Join Queue</button>
-                                        </a>
+                                        <button class="button">Log In</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #F5F5F5;
+                                        font-size: 16px;">
+                                        New to MediQue?
+                                        <br><a href="regpage.php"><u>Sign Up Here</u></a>
                                     </td>
                                     
                                 </tr>
                             </table>
                         </div>
-                </div>    
+                </div>
+            </div>
             </main>
         
             <footer>

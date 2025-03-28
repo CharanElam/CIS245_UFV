@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+}
+
 html {
     min-height: 100vh;
     margin: 0;
@@ -156,7 +160,7 @@ form button {
     padding: 10px 20px;
     width: 200px;
     margin-top: 15px;
-    background-color: #97cfc1;
+    background-color: #45b6cc;
     color: #383636;
     font-size: 18px;
     border: none;
@@ -167,7 +171,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #45b6cc;
+    background-color: #97cfc1;
 }
 
 form table tr:nth-child(odd) {
@@ -188,7 +192,7 @@ p {
     width: 470px;
     height: 90px;
     margin: 20px auto;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     color: #383636;
     font-size: 18px;
     font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
@@ -196,20 +200,20 @@ p {
 
 .image-top-right {
     position: absolute;
-    top: -12px;
+    top: -14px;
     right: 20px;
     width: auto; 
     height: auto;
-    z-index: -1;
+    z-index: 1;
 }
 
 .image-top-left {
     position: absolute;
-    top: -12px;
+    top: -14px;
     left: 20px;
     width: auto; 
     height: auto;
-    z-index: -1;
+    z-index: 1;
 }
 
 .text-name-left {
@@ -255,6 +259,9 @@ p {
     margin: 20px auto;
     box-sizing: border-box;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 table {
@@ -313,7 +320,7 @@ td {
 
 .button {
     padding: 10px 20px;
-    width: 100px;
+    width: auto;
     background-color: #97cfc1;
     color: #383636;
     font-size: 20px;
