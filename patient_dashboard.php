@@ -1,6 +1,6 @@
 <?php
 // Include the database connection file
-require_once 'db.php';
+require_once 'connection.php';
 
 // Start the session to get patient info
 session_start();
@@ -8,8 +8,9 @@ session_start();
 // Get the patient ID from session
 $patient_id = $_SESSION['patient_id']; 
 
-// Get patient's first name from the database
-$select_query_patient = "SELECT patient_first_name FROM patients WHERE patient_id = $patient_id";
+// Get patient's name from the database
+$select_query_patient = "SELECT patient_first_name, patient_last_name 
+                         FROM patients WHERE patient_id = $patient_id";
 $result_patient = mysqli_query($conn, $select_query_patient);
 
 if (!$result_patient) {
@@ -18,6 +19,7 @@ if (!$result_patient) {
 
 $patient = mysqli_fetch_assoc($result_patient);
 $patient_first_name = $patient['patient_first_name'];
+$patient_full_name = $patient['patient_first_name'] . ' ' . $patient['patient_last_name'];
 
 // Check if the patient is already in the queue
 $select_query_queue = "SELECT * FROM queue WHERE patient_id = $patient_id AND queue_date = CURDATE()";
@@ -72,15 +74,17 @@ if (isset($_POST['remove']) && $in_queue) {
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Dashboard</title>
+    <title>Welcome to MediQue :: Patient Dashboard</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="medique.css">
 </head>
 <body>
     <div class="wrapper">
         <header class="header-container">
             <div class="header-bar"></div>
-            <img src="logo.png" alt="MediQue Logo" class="header-image">
+            <a href="index.php">
+                <img src="logo.png" alt="MediQue Logo" class="header-image">
+            </a>
         </header>
 
         <main>
@@ -91,22 +95,25 @@ if (isset($_POST['remove']) && $in_queue) {
                     <a href="logout.php" class="text-logout-right">Log Out</a>
 
                     <div class="table-container">
+                        <p>Date: <?php echo date("F j, Y"); ?></p>
                         <h1>Your Queue Status</h1>
 
-                        <?php if ($in_queue): ?>
+                    
                             <table class="sticky-table">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Patient Name</th>
                                         <th>Queue Position</th>
                                         <th>Joined At</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
+                                    <?php if ($in_queue):
                                     $queue = mysqli_fetch_assoc($result_queue);
                                     echo "<tr>
                                             <td>{$queue['patient_id']}</td>
+                                            <td>{$patient_full_name}</td>
                                             <td>{$queue['queue_position']}</td>
                                             <td>{$queue['queue_time']}</td>
                                           </tr>";
@@ -116,22 +123,21 @@ if (isset($_POST['remove']) && $in_queue) {
                         <?php else: ?>
                             <p>You are not in the queue.</p>
                         <?php endif; ?>
-                            
-                        <div class="hotri-button-container">
+                        
+                        <div class="hori-button-container">
                             <form method="POST">
-                            <button type="submit" name="add" class="button-add">Add Me</button>
-                            <button type="submit" name="remove" class="button-remove">Remove Me</button>
+                                <button type="submit" name="add" class="button-add">Add Me</button>
+                                <button type="submit" name="remove" class="button-remove">Remove Me</button>
                             </form>
                         </div>
-                        
-                            <h3><b><u>Abbotsford Care Walk-In Clinic</u></b></h3>
-                            <p>1234 Healthway Drive</p>
-                            <p>Abbotsford, BC V2T 4X5</p>
-                            <p>(604) 555-1234</p>
 
+                        <h3><b><u>Abbotsford Care Walk-In Clinic</u></b></h3>
+                        <p>1234 Healthway Drive</p>
+                        <p>Abbotsford, BC V2T 4X5</p>
+                        <p>(604) 555-1234</p>
                     </div>
                 </div> 
-            </div>    
+            </div>
         </main>
 
         <footer>
