@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS medique;
+CREATE DATABASE IF NOT EXISTS medique; -- edited database name to medique
 USE medique;
 SHOW TABLES;
 
