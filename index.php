@@ -62,6 +62,7 @@ include 'connection.php';
                 </div>
                 <a href="records.php">Patients Visits Record</a>
                 <a href="userdata.php">User Data</a>
+                </div>    
             </main>
         
             <footer>

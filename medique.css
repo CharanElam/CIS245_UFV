@@ -321,7 +321,7 @@ td {
 .button {
     padding: 10px 20px;
     width: auto;
-    background-color: #45B6CC;
+    background-color: #97cfc1;
     color: #383636;
     font-size: 20px;
     border: none;
@@ -332,24 +332,7 @@ td {
 }
 
 .button:hover {
-    background-color: #97CFC1;
-}
-
-.button-small {
-    padding: 8px 16px;
-    width: auto;
-    background-color: #45B6CC;
-    color: #383636;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
-}
-
-.button-small:hover {
-    background-color: #97CFC1;
+    background-color: #45b6cc;
 }
 
 .button-add {
