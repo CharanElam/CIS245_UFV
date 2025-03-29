@@ -1,5 +1,5 @@
 CREATE DATABASE IF NOT EXISTS mediqueue;
-USE mediqueue;
+USE medique;
 SHOW TABLES;
 
 CREATE TABLE IF NOT EXISTS patients(
