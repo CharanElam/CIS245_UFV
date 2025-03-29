@@ -16,7 +16,9 @@ include 'connection.php';
         <div class="wrapper">
             <header class="header-container">
                 <div class="header-bar"></div>
-                <img src="logo.png" alt="MediQue Logo" class="header-image">
+                <a href="index.php">
+                    <img src="logo.png" alt="MediQue Logo" class="header-image">
+                </a>
             </header>
         
             <main>

@@ -335,6 +335,23 @@ td {
     background-color: #45b6cc;
 }
 
+.button-small {
+    padding: 8px 16px;
+    width: auto;
+    background-color: #45B6CC;
+    color: #383636;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Gill Sans MT', 'Gill Sans', "Arial", sans-serif;
+}
+
+.button-small:hover {
+    background-color: #97CFC1;
+}
+
 .button-add {
     padding: 10px 20px;
     width: 100px;
