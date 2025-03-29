@@ -23,6 +23,7 @@ include 'connection.php';
             <main>
                 <div class="content-container">
                     <div class="table-wrapper">
+                        <img src="admin_header.png" alt="Admin" class="image-top-right">
                         <div class="table-container">
                             <h1>User Data</h1>
                                 <?php
