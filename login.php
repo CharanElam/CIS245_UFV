@@ -23,7 +23,7 @@ include 'connection.php';
             <main>
                 <div class="content-container">
                     <div class="table-wrapper">
-                        <img src="login_header.png" alt="Welcome" class="image-top-right">
+                        <img src="login_header.png" alt="Login" class="image-top-right">
                         <div class="table-container">
                             <table style="text-align: center; 
                                           font-size: 20px;
