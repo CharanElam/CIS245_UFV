@@ -124,12 +124,10 @@ if (isset($_POST['remove']) && $in_queue) {
                             </form>
                         </div>
                         
-                        <div class="clinic-info" style="margin-top: 20px;">
                             <h3><b><u>Abbotsford Care Walk-In Clinic</u></b></h3>
                             <p>1234 Healthway Drive</p>
                             <p>Abbotsford, BC V2T 4X5</p>
                             <p>(604) 555-1234</p>
-                        </div>
 
                     </div>
                 </div> 
