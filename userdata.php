@@ -27,7 +27,7 @@ include 'connection.php';
                         <div class="table-container">
                             <h1>User Data</h1>
                                 <?php
-
+                                //getting patient information from patient table
                                 $sql = "SELECT
                                             patient_id,
                                             patient_first_name,
@@ -41,8 +41,9 @@ include 'connection.php';
                                         FROM patients
                                         ORDER BY patient_id ASC";
 
-                                $result = $con->query($sql);
+                                $result = $conn->query($sql);
 
+                                //if rows exists, display in table, if not show 'no user data found'
                                 if($result->num_rows > 0){
                                     echo '<table class="sticky-table">';
                                     echo "<tr>
@@ -75,7 +76,7 @@ include 'connection.php';
                                     echo "<p>No user data found.</p>";
                                 }
 
-                                $con->close();
+                                $conn->close();
                                 ?>
                             <div class="hori-button-container">
                                 <a href="records.php">
