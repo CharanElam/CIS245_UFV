@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+//establish connection
 include 'connection.php';
 ?>
 
@@ -27,7 +29,7 @@ include 'connection.php';
                         <div class="table-container">
                             <h1>Patient Visits Record</h1>
                                 <?php
-
+                                //getting information from two tables using join
                                 $sql = "SELECT
                                             p.patient_id,
                                             p.patient_first_name,
@@ -39,7 +41,7 @@ include 'connection.php';
                                         JOIN queue q ON p.patient_id = q.patient_id
                                         ORDER BY q.queue_date DESC, q.queue_time ASC";
 
-                                $result = $con->query($sql);
+                                $result = $conn->query($sql);
 
                                 if($result->num_rows > 0){
                                     echo '<table class="sticky-table">';
@@ -67,7 +69,7 @@ include 'connection.php';
                                     echo "<p>No records found.</p>";
                                 }
 
-                                $con->close();
+                                $conn->close();
                                 ?>
                             <div class="hori-button-container">
                                 <a href="records.php">
