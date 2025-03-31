@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+//establish connection
 include 'connection.php';
 ?>
 
@@ -23,7 +25,7 @@ include 'connection.php';
             <main>
                 <div class="text-container">
                     <p>Skip the crowded waiting rooms and manage your time 
-                        better with <b>MediQueue</b>, a virtual queue system designed 
+                        better with <b>MediQue</b>, a virtual queue system designed 
                         for walk-in clinics.
                     </p>
                 </div>
@@ -62,8 +64,9 @@ include 'connection.php';
                         </div>
                     </div> 
                 </div>
-                <a href="records.php">Patients Visits Record</a>
-                <a href="userdata.php">User Data</a>
+                <a href="records.php">Patients Visits Record</a><br>
+                <a href="userdata.php">User Data</a><br>
+                <a href="patient_dashboard.php">Patient Dashboard</a>
                 </div>    
             </main>
         
