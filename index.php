@@ -1,8 +1,6 @@
 <?php
 session_start();
-
-//establish connection
-include 'connection.php';
+require_once "connection.php";
 ?>
 
 <html lang="en">
@@ -47,27 +45,25 @@ include 'connection.php';
                                 </tr>
                                 <tr>
                                     <td style="background-color: #F5F5F5;
-                                        font-size: 25px;">
-                                        Today is <?php echo date("F j, Y"); ?>
-                                        <br> <br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="login.php">
-                                            <button class="button">Click to Join Queue</button>
-                                        </a>
+                                        font-size: 18px;">
+                                        <br><b>Login</b><br>
+                                            <form method="post" action="login.php">
+                                                <input type="email" name="email" placeholder="Email" required><br>
+                                                <input type="password" name="password" placeholder="Password" required><br>
+                                                
+                                                <br>I am a: <select name="role" required>
+                                                    <option value = "Patient">Patient</option>
+                                                    <option value = "Staff">Staff</option>
+                                                </select><br>
+                                                <button type="submit" name="login">Login</button>
+                                            </form>
+                                            <a style="font-size: 15px;" href="register.php">Register as Patient</a>
                                     </td>
                                     
                                 </tr>
                             </table>
                         </div>
-                    </div> 
-                </div>
-                <a href="records.php">Patients Visits Record</a><br>
-                <a href="userdata.php">User Data</a><br>
-                <a href="patient_dashboard.php">Patient Dashboard</a>
-                </div>    
+                    </div>     
             </main>
         
             <footer>
