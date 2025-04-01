@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 include 'connection.php';
@@ -26,24 +25,14 @@ include 'connection.php';
                     <div class="table-wrapper">
                         <img src="reg_header.png" alt="Registration" class="image-top-right">
                         <div class="form-container">
-                            <form>
-                                <table>
-                                    <tr>
-                                        <th><label for="name">Full Name:</label></th>
-                                        <td><input type="text" id="name" placeholder="Enter your name"></td>
-                                    </tr>
-                                    <tr>
-                                        <th><label for="email">Email:</label></th>
-                                        <td><input type="email" id="email" placeholder="Enter your email"></td>
-                                    </tr>
-                                    <tr>
-                                        <th><label for="phone">Phone Number:</label></th>
-                                        <td><input type="tel" id="phone" placeholder="Enter your phone number"></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"><button type="submit">Register</button></td>
-                                    </tr>
-                                </table>
+                            <form method="post">
+                                <input type="text" name="first_name" placeholder="First Name" required><br>
+                                <input type="text" name="last_name" placeholder="Last Name" required><br>
+                                <input type="email" name="email" placeholder="Email" required><br>
+                                <input type="password" name="password" placeholder="Password" required><br>
+                                <input type="text" name="city" placeholder="City" required><br>
+                                <input type="text" name="phone" placeholder="Phone" required><br>
+                                <button type="submit" name="register">Register</button>
                             </form>
                         </div>
             </main>
