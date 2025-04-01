@@ -29,10 +29,10 @@ if (!isset($_SESSION['staff_id'])) {
                     <div class="table-wrapper">
                         <img src="admin_header.png" alt="Admin" class="image-top-right">
                         <div class="table-container">
-                            <h1>User Data</h1>
+                            <h1>Patient Data</h1>
                                 <?php
                                 //getting patient information from patient table
-                                $sql = "SELECT
+                                $patient_sql = "SELECT
                                             patient_id,
                                             patient_first_name,
                                             patient_last_name,
@@ -45,10 +45,10 @@ if (!isset($_SESSION['staff_id'])) {
                                         FROM patients
                                         ORDER BY patient_id ASC";
 
-                                $result = $conn->query($sql);
+                                $patient_result = $conn->query($patient_sql);
 
                                 //if rows exists, display in table, if not show 'no user data found'
-                                if($result->num_rows > 0){
+                                if($patient_result->num_rows > 0){
                                     echo '<table class="sticky-table">';
                                     echo "<tr>
                                             <th>Patient ID</th>
@@ -62,7 +62,7 @@ if (!isset($_SESSION['staff_id'])) {
                                             <th>Emergency Contact Phone</th>
                                         </tr>";
 
-                                    while ($row = $result->fetch_assoc()){
+                                    while ($row = $patient_result->fetch_assoc()){
                                         echo "<tr>
                                                 <td>" . $row["patient_id"] . "</td>
                                                 <td>" . $row["patient_first_name"] . "</td>
@@ -79,21 +79,21 @@ if (!isset($_SESSION['staff_id'])) {
                                 } else {
                                     echo "<p>No user data found.</p>";
                                 }
-
-                                $conn->close();
                                 ?>
                             <div class="hori-button-container">
                                 <a href="records.php">
                                     <button class="button-small">Visits Record</button>
                                 </a>
                                 <a href="userdata.php">
-                                    <button class="button-small">User Data</button>
+                                    <button class="button-small">Patient Data</button>
                                 </a>
                             </div>
                         </div>
-                    </div> 
-                </div>
-            </main>
+                            
+                    </div>
+                </div> 
+            </main>    
+        </div>
             <footer>
                 <p>&copy; 2025 Charan, Sana, Jade</p>
             </footer>
