@@ -1,66 +1,45 @@
 <?php
 session_start();
-include 'connection.php';
-?>
+require_once "connection.php";
 
-<html lang="en">
-    <head>
-        <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-        <title>Welcome to MediQue :: Home</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="medique.css">
-    </head>
-    <body>
-        <div class="wrapper">
-            <header class="header-container">
-                <div class="header-bar"></div>
-                <a href="index.php">
-                    <img src="logo.png" alt="MediQue Logo" class="header-image">
-                </a>
-            </header>
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
+    
+    if($role == 'Patient'){
+        $query = "SELECT * FROM patients WHERE patient_email = '$email' AND patient_password = '$password'";
+    } else {
+        $query = "SELECT * FROM staff WHERE staff_email = '$email' AND staff_password = '$password'";
+    }
+    
+    $result = mysqli_query($conn, $query);
+    
+    if(mysqli_num_rows($result)==0){
+        header('location:index.php');
+    }else {
         
-            <main>
-                <div class="content-container">
-                    <div class="table-wrapper">
-                        <img src="login_header.png" alt="Login" class="image-top-right">
-                        <div class="table-container">
-                            <table style="text-align: center; 
-                                          font-size: 20px;
-                                          text-decoration: none;">
-                                <tr>
-                                    <td>
-                                        filler text filler text
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="background-color: #F5F5F5;
-                                        font-size: 25px;">
-                                        filler text filler text
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <button class="button">Log In</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="background-color: #F5F5F5;
-                                        font-size: 16px;">
-                                        New to MediQue?
-                                        <br><a href="register.php"><u>Sign Up Here</u></a>
-                                    </td>
-                                    
-                                </tr>
-                            </table>
-                        </div>
-                </div>
-            </div>
-            </main>
+       $user = mysqli_fetch_assoc($result);
+       
+       if($role == 'Patient') {
+            $_SESSION['patient_id'] = $user['patient_id'];
+            $_SESSION['patient_first_name'] = $user['patient_first_name'];
+       } else {
+            $_SESSION['staff_id'] = $user['staff_id'];
+            $_SESSION['staff_first_name'] = $user['staff_first_name'];
+       }
+       
+       $_SESSION['role'] = $role;
+       $_SESSION['isloggedin'] = 1;
         
-            <footer>
-                <p>&copy; 2025 Charan, Sana, Jade</p>
-            </footer>
-        </div>
-    </body>
-    </html>
+       if($role == 'Patient'){
+           header("location: patient_dashboard.php");
+       } else {
+           header("location: staff_dashboard.php");
+       }
+        exit();
+    }
+}
+
+mysqli_close($conn);
+?>
