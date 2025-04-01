@@ -1,6 +1,10 @@
 <?php
 session_start();
-include 'connection.php';
+require_once "connection.php";
+if (!isset($_SESSION['staff_id'])) {
+    header("Location: index.php");
+    exit();
+}
 ?>
 
 <html lang="en">
