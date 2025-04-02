@@ -24,7 +24,6 @@ staff_role ENUM("Staff", "Admin") NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS queue(
-queue_id INT PRIMARY KEY,
 patient_id INT NOT NULL,
 queue_position INT NOT NULL,
 added_by INT NULL,
@@ -39,8 +38,7 @@ FOREIGN KEY (added_by) REFERENCES staff(staff_id)
 CREATE TABLE IF NOT EXISTS visit_records(
 record_id INT PRIMARY KEY AUTO_INCREMENT,
 patient_id INT NOT NULL,
-queue_id INT NOT NULL,
+queue_date DATE NOT NULL,
 status ENUM("Active", "Completed", "Dropped") NOT NULL,
-FOREIGN KEY (patient_id) REFERENCES patients(patient_id),
-FOREIGN KEY (queue_id) REFERENCES queue(queue_id)
+FOREIGN KEY (patient_id) REFERENCES patients(patient_id)
 ); 
