@@ -11,7 +11,7 @@ if (!isset($_SESSION['staff_id'])) {
     <head>
         <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-        <title>Welcome to MediQue :: Patient Visit Records</title>
+        <title>Welcome to MediQue :: Patient Data</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="medique.css">
     </head>
@@ -37,7 +37,6 @@ if (!isset($_SESSION['staff_id'])) {
                                             patient_first_name,
                                             patient_last_name,
                                             patient_email,
-                                            patient_password,
                                             patient_city,
                                             patient_phone,
                                             emergency_contact_name,
@@ -55,7 +54,6 @@ if (!isset($_SESSION['staff_id'])) {
                                             <th>First Name</th>
                                             <th>Last Name</th>
                                             <th>Email</th>
-                                            <th>Password</th>
                                             <th>City</th>
                                             <th>Phone</th>
                                             <th>Emergency Contact Name</th>
@@ -68,7 +66,6 @@ if (!isset($_SESSION['staff_id'])) {
                                                 <td>" . $row["patient_first_name"] . "</td>
                                                 <td>" . $row["patient_last_name"] . "</td>
                                                 <td>" . $row["patient_email"] . "</td>
-                                                <td>" . $row["patient_password"] . "</td>
                                                 <td>" . $row["patient_city"] . "</td>
                                                 <td>" . $row["patient_phone"] . "</td>
                                                 <td>" . $row["emergency_contact_name"] . "</td>
@@ -81,7 +78,7 @@ if (!isset($_SESSION['staff_id'])) {
                                 }
                                 ?>
                             <div class="hori-button-container">
-                                <a href="records.php">
+                                <a href="staff_records.php">
                                     <button class="button-small">Visits Record</button>
                                 </a>
                                 <a href="userdata.php">
