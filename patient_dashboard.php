@@ -45,7 +45,7 @@ if ($result_position) {
 // Handle "Add me" action
 if (isset($_POST['add']) && !$in_queue) {
     $insert_query = "INSERT INTO queue (patient_id, queue_position, added_by, queue_date, queue_time) 
-                     VALUES ($patient_id, $next_position, Null, CURDATE(), CURTIME())";
+                     VALUES ($patient_id, $next_position, NULL, CURDATE(), CURTIME())";
     $result_insert = mysqli_query($conn, $insert_query);
 
     if (!$result_insert) {
@@ -57,10 +57,13 @@ if (isset($_POST['add']) && !$in_queue) {
 }
 
 // Handle "Remove me" action
-//First add it to records
+// First add it to records
 if (isset($_POST['remove']) && $in_queue) {
     $delete_query = "DELETE FROM queue WHERE patient_id = $patient_id AND queue_date = CURDATE()";
     $result_delete = mysqli_query($conn, $delete_query);
+    $add_to_records_query = "INSERT INTO visit_records (patient_id, queue_date, status) 
+            VALUES ($patient_id, CURDATE(), 'Dropped')";
+    $result_add_to_records = mysqli_query($conn, $add_to_records_query);
 
     if (!$result_delete) {
         die("Query failed: " . mysqli_error($conn));
@@ -106,7 +109,7 @@ if (isset($_POST['remove']) && $in_queue) {
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Patient Name</th>
+                                        <th>Name</th>
                                         <th>Queue Position</th>
                                         <th>Joined At</th>
                                     </tr>
@@ -135,10 +138,14 @@ if (isset($_POST['remove']) && $in_queue) {
                         <h3><b><u>Abbotsford Care Walk-In Clinic</u></b></h3>
                         <p>1234 Healthway Drive</p>
                         <p>Abbotsford, BC V2T 4X5</p>
-                        <p>(604) 555-1234</p>
+                        <p>(604) 555-1234</p>   
+                   <a href="userdata.php">
+                    <button class="button-small">User Data</button>
+                   </a>
                     </div>
                 </div> 
             </div>
+           
         </main>
 
         <footer>
