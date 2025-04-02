@@ -1,6 +1,6 @@
 <?php
 // Include the database connection file
-require_once 'db.php';
+require_once 'connection.php';
 
 // Start the session to get patient info
 session_start();
@@ -42,10 +42,10 @@ if ($result_position) {
     $next_position = 1;
 }
 
-// Handle "Join Queue" action
+// Handle "Add me" action
 if (isset($_POST['add']) && !$in_queue) {
     $insert_query = "INSERT INTO queue (patient_id, queue_position, added_by, queue_date, queue_time) 
-                     VALUES ($patient_id, $next_position, 0, CURDATE(), CURTIME())";
+                     VALUES ($patient_id, $next_position, Null, CURDATE(), CURTIME())";
     $result_insert = mysqli_query($conn, $insert_query);
 
     if (!$result_insert) {
@@ -56,7 +56,8 @@ if (isset($_POST['add']) && !$in_queue) {
     exit();
 }
 
-// Handle "Remove from Queue" action
+// Handle "Remove me" action
+//First add it to records
 if (isset($_POST['remove']) && $in_queue) {
     $delete_query = "DELETE FROM queue WHERE patient_id = $patient_id AND queue_date = CURDATE()";
     $result_delete = mysqli_query($conn, $delete_query);
@@ -76,7 +77,7 @@ if (isset($_POST['remove']) && $in_queue) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to MediQue :: Patient Dashboard</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="medique.css">
 </head>
 <body>
     <div class="wrapper">
@@ -98,8 +99,10 @@ if (isset($_POST['remove']) && $in_queue) {
                         <p>Date: <?php echo date("F j, Y"); ?></p>
                         <h1>Your Queue Status</h1>
 
-                    
-                            <table class="sticky-table">
+                    <?php if ($in_queue):
+                       $queue = mysqli_fetch_assoc($result_queue);
+                        echo
+                            "<table class='sticky-table'>
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -109,9 +112,7 @@ if (isset($_POST['remove']) && $in_queue) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if ($in_queue):
-                                    $queue = mysqli_fetch_assoc($result_queue);
-                                    echo "<tr>
+                                     <tr>
                                             <td>{$queue['patient_id']}</td>
                                             <td>{$patient_full_name}</td>
                                             <td>{$queue['queue_position']}</td>
