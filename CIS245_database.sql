@@ -41,5 +41,5 @@ patient_id INT NOT NULL,
 queue_date DATE NOT NULL,
 status ENUM("Active", "Completed", "Dropped") NOT NULL,
 FOREIGN KEY (patient_id) REFERENCES patients(patient_id),
-FOREIGN KEY (queue_date) REFERENCES queue(queue_id)
+FOREIGN KEY (queue_date) REFERENCES queue(queue_date)
 ); 
