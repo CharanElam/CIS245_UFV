@@ -1,3 +1,4 @@
+// page 1
 <?php
 // Include the database connection file
 require_once 'connection.php';
