@@ -1,6 +1,6 @@
 <?php
 // Include the database connection file
-require_once 'connection.php';
+require_once 'db.php';
 
 // Start the session to get patient info
 session_start();
@@ -76,7 +76,7 @@ if (isset($_POST['remove']) && $in_queue) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to MediQue :: Patient Dashboard</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="medique.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="wrapper">
