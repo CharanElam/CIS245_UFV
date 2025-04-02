@@ -1,34 +1,45 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-include("connection.php");
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $Name = $_POST['Name'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $sql = "INSERT INTO midtermusers (Name, username, password) VALUES ('$Name', '$username', '$password')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "User added successfully!";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-}
+<?php
+session_start();
+include 'connection.php';
 ?>
 
-<form method="post">
-    Name: <input type="text" name="Name" required><br>
-    Username: <input type="text" name="username" required><br>
-    Password: <input type="password" name="password" required><br>
-    <input type="submit" value="Create an account">
-</form>
+<html lang="en">
+    <head>
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+        <title>Welcome to MediQue :: Home</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="medique.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header-container">
+                <div class="header-bar"></div>
+                <a href="index.php">
+                    <img src="logo.png" alt="MediQue Logo" class="header-image">
+                </a>
+            </header>
+        
+            <main>
+                <div class="content-container">
+                    <div class="table-wrapper">
+                        <img src="reg_header.png" alt="Registration" class="image-top-right">
+                        <div class="form-container">
+                            <form method="post">
+                                <input type="text" name="first_name" placeholder="First Name" required><br>
+                                <input type="text" name="last_name" placeholder="Last Name" required><br>
+                                <input type="email" name="email" placeholder="Email" required><br>
+                                <input type="password" name="password" placeholder="Password" required><br>
+                                <input type="text" name="city" placeholder="City" required><br>
+                                <input type="text" name="phone" placeholder="Phone" required><br>
+                                <button type="submit" name="register">Register</button>
+                            </form>
+                        </div>
+            </main>
+        
+            <footer>
+                <p>&copy; 2025 Charan, Sana, Jade</p>
+            </footer>
+        </div>
     </body>
-</html>
+    </html>
