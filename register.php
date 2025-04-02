@@ -3,11 +3,16 @@ session_start();
 include 'connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $Name = $_POST['Name'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $pFirstName = $_POST['first_name'];
+    $pLastName = $_POST['last_name'];
+    $pEmail = $_POST['email'];
+    $pPassword = $_POST['password'];
+    $pCity = $_POST['city'];
+    $pPhone = $_POST['phone'];
+    $pEmergencyName = $_POST['emergency_name'];
+    $pEmergencyPhone = $_POST['emergency_phone'];
 
-    $sql = "INSERT INTO midtermusers (Name, username, password) VALUES ('$Name', '$username', '$password')";
+    $sql = "INSERT INTO patients (patient_first_name, patient_last_name, patient_email, patient_password, patient_city, patient_phone, emergency_contact_name, emergency_contact_phone) VALUES ('$pFirstName', '$pLastName', '$pEmail', '$pPassword', '$pCity', '$pPhone', '$pEmergencyName', '$pEmergencyPhone')";
 
     if ($conn->query($sql) === TRUE) {
         echo "User added successfully!";
@@ -45,7 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <input type="email" name="email" placeholder="Email" required><br>
                                 <input type="password" name="password" placeholder="Password" required><br>
                                 <input type="text" name="city" placeholder="City" required><br>
-                                <input type="text" name="phone" placeholder="Phone" required><br>
+                                <input type="tel" name="phone" placeholder="Phone" required><br>
+                                <input type="text" name="emergency_name" placeholder="Emergency Contact Name" required><br>
+                                <input type="tel" name="emergency_phone" placeholder="Emergency Contact Phone" required><br>
                                 <button type="submit" name="register">Register</button>
                             </form>
                         </div>
