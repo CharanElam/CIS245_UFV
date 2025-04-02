@@ -39,6 +39,6 @@ CREATE TABLE IF NOT EXISTS visit_records(
 record_id INT PRIMARY KEY AUTO_INCREMENT,
 patient_id INT NOT NULL,
 queue_date DATE NOT NULL,
-status ENUM("Active", "Completed", "Dropped") NOT NULL,
+status ENUM("Completed", "Dropped") NOT NULL,
 FOREIGN KEY (patient_id) REFERENCES patients(patient_id)
 ); 
