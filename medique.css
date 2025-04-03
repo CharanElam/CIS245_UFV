@@ -121,7 +121,6 @@ footer a:link, footer a:visited {
     padding: 25px;
     border-radius: 15px;
     width: 100%;
-    max-width: 500px; 
     margin: 20px auto;
     box-sizing: border-box;
     overflow: auto;
@@ -230,7 +229,7 @@ p {
 .text-logout-right {
     color: #383636;
     position: absolute;
-    top: -13px;
+    top: 2px;
     right: 20px;
     color: #383636;
     font-size: 16px;
@@ -255,6 +254,7 @@ p {
     padding: 25px;
     border-radius: 15px;
     width: 100%;
+    min-width: 500px;
     max-height: 700px;
     margin: 20px auto;
     box-sizing: border-box;
@@ -262,18 +262,19 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 table {
     margin: auto;
     border-style: none;
     max-width: 100%;
-    min-width: 100%;
+    min-width: 500px;
     font-size: 0.8em;
     border-collapse: collapse;
     max-height: 350px;
     overflow-y: auto;
-    display: block;
+    display: table;
 }
 
 th, td {
@@ -321,7 +322,7 @@ td {
 .button {
     padding: 10px 20px;
     width: auto;
-    background-color: #97cfc1;
+    background-color: #45b6cc;
     color: #383636;
     font-size: 20px;
     border: none;
@@ -332,13 +333,13 @@ td {
 }
 
 .button:hover {
-    background-color: #45b6cc;
+    background-color: #97cfc1;
 }
 
 .button-small {
     padding: 8px 16px;
     width: auto;
-    background-color: #45B6CC;
+    background-color: #97CFC1;
     color: #383636;
     font-size: 16px;
     border: none;
@@ -349,7 +350,7 @@ td {
 }
 
 .button-small:hover {
-    background-color: #97CFC1;
+    background-color: #45B6CC;
 }
 
 .button-add {
