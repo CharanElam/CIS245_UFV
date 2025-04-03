@@ -5,8 +5,21 @@ if (!isset($_SESSION['patient_id'])) {
     header("Location: index.php");
     exit();
 }
+$patient_id = $_SESSION['patient_id'];
 
-$user_id = $_SESSION['patient_id'];
+$select_query_patient = "SELECT patient_first_name, patient_last_name 
+                         FROM patients WHERE patient_id = $patient_id";
+$result_patient = mysqli_query($conn, $select_query_patient);
+
+if (!$result_patient) {
+    die("Query failed: " . mysqli_error($conn));
+}
+
+$patient = mysqli_fetch_assoc($result_patient);
+$patient_first_name = $patient['patient_first_name'];
+$patient_full_name = $patient['patient_first_name'] . ' ' . $patient['patient_last_name'];
+
+
 ?>
 
 <html lang="en">
@@ -29,8 +42,12 @@ $user_id = $_SESSION['patient_id'];
             <main>
                 <div class="content-container">
                     <div class="table-wrapper">
-                        <img src="welcome_header.png" alt="Welcome" class="image-top-right">
+                        <img src="welcome_name.png" alt="Welcome" class="image-top-left">
+                        <h3 class="text-name-left"><?php echo $patient_first_name; ?></h3>
+                        <a href="logout.php" class="text-logout-right">Log Out</a>
+                    
                         <div class="table-container">
+                            <table>
                             <h1>My Previous Visits</h1>
                                 <?php
                                 //getting information from two tables using join
@@ -39,13 +56,12 @@ $user_id = $_SESSION['patient_id'];
                                             q.queue_time,
                                             q.status
                                         FROM queue q
-                                        WHERE patient_id = $user_id
+                                        WHERE patient_id = $patient_id
                                         ORDER BY q.queue_date DESC, q.queue_time ASC";
 
                                 $result = $conn->query($sql);
 
                                 if($result->num_rows > 0){
-                                    echo '<table class="sticky-table">';
                                     echo "<tr>
                                             <th>Queue Date</th>
                                             <th>Queue Time</th>
@@ -66,12 +82,10 @@ $user_id = $_SESSION['patient_id'];
 
                                 $conn->close();
                                 ?>
-                            <div class="hori-button-container">
-                                <a href="records.php">
-                                    <button class="button-small">Visits Record</button>
-                                </a>
-                                <a href="userdata.php">
-                                    <button class="button-small">User Data</button>
+                            </table>
+                            <div>
+                                <a href="patient_dashboard.php">
+                                    <button class="button-small">Back</button>
                                 </a>
                             </div>
                         </div>
