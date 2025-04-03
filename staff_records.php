@@ -89,11 +89,11 @@ $staff_full_name = $staff['staff_first_name'] . ' ' . $staff['staff_last_name'];
 
                                 $conn->close();
                                 ?>
-                            <div style="margin-top:10px";>
+                            <div class="hori-button-container">
                                 <a href="staff_dashboard.php">
                                     <button class="button-small">Back</button>
                                 </a>
-                                </div>
+                            </div>
                         </div>
                     </div> 
                 </div>

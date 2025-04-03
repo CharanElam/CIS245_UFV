@@ -83,7 +83,7 @@ $patient_full_name = $patient['patient_first_name'] . ' ' . $patient['patient_la
                                 $conn->close();
                                 ?>
                             </table>
-                            <div>
+                            <div class="hori-button-container">
                                 <a href="patient_dashboard.php">
                                     <button class="button-small">Back</button>
                                 </a>
