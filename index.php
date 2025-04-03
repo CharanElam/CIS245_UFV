@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "connection.php";
+include "connection.php";
 ?>
 
 <html lang="en">
@@ -56,6 +56,12 @@ require_once "connection.php";
                                                     <option value = "Staff">Staff</option>
                                                 </select><br>
                                                 <button type="submit" name="login">Login</button>
+                                                <?php
+                                                if (isset($_SESSION['login_error'])) {
+                                                    echo "<p style='font-size: 15px;'>" . $_SESSION['login_error'] . "</p>";
+                                                    unset($_SESSION['login_error']);
+                                                }
+                                                ?>
                                             </form>
                                             <a style="font-size: 15px;" href="register.php">Register as Patient</a>
                                     </td>
@@ -63,7 +69,8 @@ require_once "connection.php";
                                 </tr>
                             </table>
                         </div>
-                    </div>     
+                    </div>    
+                </div>
             </main>
         
             <footer>
