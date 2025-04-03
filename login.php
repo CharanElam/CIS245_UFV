@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $result = mysqli_query($conn, $query);
     
     if(mysqli_num_rows($result)==0){
+        $_SESSION['login_error'] = "Login failed, please check your input.";
         header('location:index.php');
     }else {
         
