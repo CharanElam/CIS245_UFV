@@ -4,14 +4,28 @@ require_once "connection.php";
 if (!isset($_SESSION['staff_id'])) {
     header("Location: index.php");
     exit();
+}  
+$staff_id = $_SESSION['staff_id'];
+
+$select_query_staff = "SELECT staff_first_name, staff_last_name 
+                         FROM staff WHERE staff_id = $staff_id";
+$result_staff = mysqli_query($conn, $select_query_staff);
+
+if (!$result_staff) {
+    die("Query failed: " . mysqli_error($conn));
 }
+
+$staff = mysqli_fetch_assoc($result_staff);
+$staff_first_name = $staff ['staff_first_name'];
+$staff_full_name = $staff['staff_first_name'] . ' ' . $staff['staff_last_name'];
+
 ?>
 
 <html lang="en">
     <head>
         <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-        <title>Welcome to MediQue :: Patient Visit Records</title>
+        <title>Welcome to MediQue :: All Visit Records</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="medique.css">
     </head>
@@ -27,9 +41,11 @@ if (!isset($_SESSION['staff_id'])) {
             <main>
                 <div class="content-container">
                     <div class="table-wrapper">
-                        <img src="admin_header.png" alt="Admin" class="image-top-right">
+                        <img src="welcome_name.png" alt="Welcome" class="image-top-left">
+                        <h3 class="text-name-left"><?php echo $staff_first_name; ?></h3>
+                        <a href="logout.php" class="text-logout-right">Log Out</a>
                         <div class="table-container">
-                            <h1>Patient Visits Record</h1>
+                            <h1>All Visits Record</h1>
                                 <?php
                                 //getting information from two tables using join
                                 $sql = "SELECT
@@ -73,14 +89,11 @@ if (!isset($_SESSION['staff_id'])) {
 
                                 $conn->close();
                                 ?>
-                            <div class="hori-button-container">
-                                <a href="staff_records.php">
-                                    <button class="button-small">Visits Record</button>
+                            <div style="margin-top:10px";>
+                                <a href="staff_dashboard.php">
+                                    <button class="button-small">Back</button>
                                 </a>
-                                <a href="userdata.php">
-                                    <button class="button-small">User Data</button>
-                                </a>
-                            </div>
+                                </div>
                         </div>
                     </div> 
                 </div>
