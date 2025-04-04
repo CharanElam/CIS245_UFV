@@ -1,4 +1,3 @@
-// page 1
 <?php
 // Include the database connection file
 require_once 'connection.php';
@@ -136,13 +135,20 @@ if (isset($_POST['remove']) && $in_queue) {
                             </form>
                         </div>
 
-                        <h3><b><u>Abbotsford Care Walk-In Clinic</u></b></h3>
-                        <p>1234 Healthway Drive</p>
-                        <p>Abbotsford, BC V2T 4X5</p>
-                        <p>(604) 555-1234</p>   
-                   <a href="userdata.php">
-                    <button class="button-small">User Data</button>
-                   </a>
+                        <br><h3><b><u>Abbotsford Care Walk-In Clinic</u></b></h3>
+                        1234 Healthway Drive<br>
+                        Abbotsford, BC V2T 4X5<br>
+                        (604) 555-1234  
+                        
+                        
+                        <div>
+                        <br> <a href="patient_records.php">
+                        <button class="button-small">My Visits</button>
+                        </a>
+                        <a href="patient_userdata.php">
+                        <button class="button-small">My Profile</button>
+                        </a>
+                        </div>
                     </div>
                 </div> 
             </div>
