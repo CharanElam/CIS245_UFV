@@ -33,7 +33,7 @@ Before running the application locally, ensure you have the following installed:
 
 ### 1. Clone the Repository
 
-```bash
+``bash
 git clone https://github.com/CharanElam/CIS245_UFV.git
 
 ### 2. Import the Database
@@ -51,7 +51,7 @@ git clone https://github.com/CharanElam/CIS245_UFV.git
 
 - Open the file `connection.php` and update the credentials:
 
-```php
+``php
 $servername = "localhost";
 $username = "your_mysql_username";
 $password = "your_mysql_password";
@@ -66,12 +66,12 @@ $dbname = "cis245_db"; // or the name you used
 - Open the **XAMPP Control Panel**, start **Apache** and **MySQL**.
 - Visit the app in your browser:
 
-```bash
+``bash
 http://localhost/CIS245_UFV/index.php
 
 ## Project Structure
 
-```bash
+``bash
 CIS245_UFV/
 │
 ├── index.php              # Landing page
