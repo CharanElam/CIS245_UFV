@@ -22,8 +22,8 @@ The **Patient Management System** is a web-based application developed for the *
 
 Before running the application locally, ensure you have the following installed:
 
-- [XAMPP](https://www.apachefriends.org/index.html) (or equivalent stack with):
-  - Apache Server
+- [XAMPP](https://www.apachefriends.org/download.html) (or equivalent stack with):
+  - [Apache Server](https://netbeans.apache.org/front/main/download/)
   - MySQL Database
   - PHP
 
@@ -33,8 +33,7 @@ Before running the application locally, ensure you have the following installed:
 
 ### 1. Clone the Repository
 
-``bash
-git clone https://github.com/CharanElam/CIS245_UFV.git
+git clone `https://github.com/CharanElam/CIS245_UFV.git`
 
 ### 2. Import the Database
 
@@ -51,10 +50,10 @@ git clone https://github.com/CharanElam/CIS245_UFV.git
 
 - Open the file `connection.php` and update the credentials:
 
-$servername = "localhost";<br>
-$username = "your_mysql_username";<br>
-$password = "your_mysql_password";<br>
-$dbname = "cis245_db"; // or the name you used
+`$servername = "localhost";`
+`$username = "your_mysql_username";`
+`$password = "your_mysql_password";`
+`$dbname = "cis245_db";` (or the name you used)
 
 ### 4. Move Project Files to Server Directory
 
