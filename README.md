@@ -67,7 +67,7 @@ git clone `https://github.com/CharanElam/CIS245_UFV.git`
 ## Project Structure
 
 CIS245_UFV/<br>
-│
+│<br>
 ├── `index.php`              # Landing page<br>
 ├── `login.php`              # Login form<br>
 ├── `register.php`           # Registration page<br>
