@@ -50,9 +50,9 @@ git clone `https://github.com/CharanElam/CIS245_UFV.git`
 
 - Open the file `connection.php` and update the credentials:
 
-`$servername = "localhost";`
-`$username = "your_mysql_username";`
-`$password = "your_mysql_password";`
+`$servername = "localhost";`<br>
+`$username = "your_mysql_username";`<br>
+`$password = "your_mysql_password";`<br>
 `$dbname = "cis245_db";` (or the name you used)
 
 ### 4. Move Project Files to Server Directory
@@ -64,25 +64,21 @@ git clone `https://github.com/CharanElam/CIS245_UFV.git`
 - Open the **XAMPP Control Panel**, start **Apache** and **MySQL**.
 - Visit the app in your browser:
 
-``bash
-http://localhost/CIS245_UFV/index.php
-
 ## Project Structure
 
-``bash
-CIS245_UFV/
+CIS245_UFV/<br>
 │
-├── index.php              # Landing page
-├── login.php              # Login form
-├── register.php           # Registration page
-├── patient_dashboard.php  # Dashboard for patients
-├── staff_dashboard.php    # Dashboard for staff
-├── patient_records.php    # Patient records interface
-├── staff_records.php      # Staff records interface
-├── connection.php         # DB connection configuration
-├── medique.css            # Main stylesheet
-├── images/                # Contains logos and headers
-└── CIS245_database.sql    # Database schema file
+├── `index.php`              # Landing page<br>
+├── `login.php`              # Login form<br>
+├── `register.php`           # Registration page<br>
+├── `patient_dashboard.php`  # Dashboard for patients<br>
+├── `staff_dashboard.php`    # Dashboard for staff<br>
+├── `patient_records.php`    # Patient records interface<br>
+├── `staff_records.php`      # Staff records interface<br>
+├── `connection.php`         # DB connection configuration<br>
+├── `medique.css`            # Main stylesheet<br>
+├── `images/`                # Contains logos and headers<br>
+└── `CIS245_database.sql`    # Database schema file
 
 ## Usage
 
