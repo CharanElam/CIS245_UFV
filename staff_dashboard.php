@@ -149,15 +149,13 @@ if (isset($_POST['update_status'])) {
         </header>
         <br> <br> <br>
     <main>
-        <div class="conent-container">
+        <div class="content-container">
             <div class="table-wrapper">
                 <img src="welcome_name.png" alt="Welcome" class="image-top-left">
                 <h3 class="text-name-left"><?php echo $staff_name; ?></h3>
                 <a href="logout.php" class="text-logout-right">Log Out</a>
-        
-        <div class="table-container">
-             <h2>Patients in Queue</h2>
-             
+                <div class="table-container">
+                    <h1>Patients in Queue</h1>     
         <table border="1">
             <thead>
                 <tr>
@@ -195,18 +193,24 @@ if (isset($_POST['update_status'])) {
         </table>
 
         <!-- Add New Patient Form -->
-        <h2>Add New Patient</h2>
+        <br><h2>Add New Patient</h2>
         <?php if (isset($message)):
              echo htmlspecialchars($message); 
              endif; ?>
         <form method="POST" action="">
             <label for="new_patient_id">Enter Patient ID:</label>
             <input type="text" name="new_patient_id" id="new_patient_id" required>
-            <button type="submit" name="add_patient">Add to Queue</button>
+            <button type="submit" name="add_patient" class="button-add">Add to Queue</button>
         </form>
         <br>
-        <a href="staff_records.php">All Visits Record</a><br>
-        <a href="staff_userdata.php">Patient Details</a><br>
+        <div>
+            <br> <a href="staff_records.php">
+            <button class="button-small">All Visits Record</button>
+            </a>
+            <a href="staff_userdata.php">
+            <button class="button-small">Patient Details</button>
+            </a>
+        </div>
         </div>  
      </div>
     </div>

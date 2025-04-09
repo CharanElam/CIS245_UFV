@@ -1,17 +1,34 @@
 <?php
 session_start();
 require_once "connection.php";
-if (!isset($_SESSION['staff_id'])) {
+
+$patient_id = $_SESSION['patient_id'];
+
+if (!isset($_SESSION['patient_id'])) {
     header("Location: index.php");
     exit();
 }
+
+$select_query_patient = "SELECT patient_first_name, patient_last_name 
+                         FROM patients WHERE patient_id = $patient_id";
+$result_patient = mysqli_query($conn, $select_query_patient);
+
+if (!$result_patient) {
+    die("Query failed: " . mysqli_error($conn));
+}
+
+$patient = mysqli_fetch_assoc($result_patient);
+$patient_first_name = $patient['patient_first_name'];
+$patient_full_name = $patient['patient_first_name'] . ' ' . $patient['patient_last_name'];
+
+
 ?>
 
 <html lang="en">
     <head>
         <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-        <title>Welcome to MediQue :: Patient Visit Records</title>
+        <title>Welcome to MediQue :: Patient Data</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="medique.css">
     </head>
@@ -27,65 +44,61 @@ if (!isset($_SESSION['staff_id'])) {
             <main>
                 <div class="content-container">
                     <div class="table-wrapper">
-                        <img src="admin_header.png" alt="Admin" class="image-top-right">
+                        <img src="welcome_name.png" alt="Welcome" class="image-top-left">
+                        <h3 class="text-name-left"><?php echo $patient_first_name; ?></h3>
+                        <a href="logout.php" class="text-logout-right">Log Out</a>
+                        
                         <div class="table-container">
-                            <h1>Patient Data</h1>
+                            <table>
+                                <h1>My Profile</h1>
                                 <?php
-                                //getting patient information from patient table
-                                $patient_sql = "SELECT
-                                            patient_id,
+                                //getting information from two tables using join
+                                $sql = "SELECT
                                             patient_first_name,
                                             patient_last_name,
                                             patient_email,
-                                            patient_password,
                                             patient_city,
                                             patient_phone,
                                             emergency_contact_name,
                                             emergency_contact_phone
                                         FROM patients
-                                        ORDER BY patient_id ASC";
+                                        WHERE patient_id = $patient_id";
 
-                                $patient_result = $conn->query($patient_sql);
+                                $result = $conn->query($sql);
 
-                                //if rows exists, display in table, if not show 'no user data found'
-                                if($patient_result->num_rows > 0){
-                                    echo '<table class="sticky-table">';
+                                if($result->num_rows > 0){
                                     echo "<tr>
-                                            <th>Patient ID</th>
                                             <th>First Name</th>
                                             <th>Last Name</th>
                                             <th>Email</th>
-                                            <th>Password</th>
                                             <th>City</th>
                                             <th>Phone</th>
                                             <th>Emergency Contact Name</th>
                                             <th>Emergency Contact Phone</th>
                                         </tr>";
 
-                                    while ($row = $patient_result->fetch_assoc()){
+                                    while ($row = $result->fetch_assoc()){
                                         echo "<tr>
-                                                <td>" . $row["patient_id"] . "</td>
                                                 <td>" . $row["patient_first_name"] . "</td>
                                                 <td>" . $row["patient_last_name"] . "</td>
                                                 <td>" . $row["patient_email"] . "</td>
-                                                <td>" . $row["patient_password"] . "</td>
                                                 <td>" . $row["patient_city"] . "</td>
                                                 <td>" . $row["patient_phone"] . "</td>
                                                 <td>" . $row["emergency_contact_name"] . "</td>
-                                                <td>" . $row["emergency_contact_phone"] . "</td>
+                                                <td>" . $row["emergency_contact_phone"] . "</td>    
                                             </tr>";
                                     }
                                     echo "</table>";
                                 } else {
-                                    echo "<p>No user data found.</p>";
+                                    echo "<p>No records found.</p>";
                                 }
+
+                                $conn->close();
                                 ?>
+                            </table>
                             <div class="hori-button-container">
-                                <a href="records.php">
-                                    <button class="button-small">Visits Record</button>
-                                </a>
-                                <a href="userdata.php">
-                                    <button class="button-small">Patient Data</button>
+                                <a href="patient_dashboard.php">
+                                    <button class="button-small">Back</button>
                                 </a>
                             </div>
                         </div>
