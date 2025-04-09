@@ -51,10 +51,9 @@ git clone https://github.com/CharanElam/CIS245_UFV.git
 
 - Open the file `connection.php` and update the credentials:
 
-``php
-$servername = "localhost";
-$username = "your_mysql_username";
-$password = "your_mysql_password";
+$servername = "localhost";<br>
+$username = "your_mysql_username";<br>
+$password = "your_mysql_password";<br>
 $dbname = "cis245_db"; // or the name you used
 
 ### 4. Move Project Files to Server Directory
