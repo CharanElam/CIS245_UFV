@@ -24,7 +24,7 @@ Before running the application locally, ensure you have the following installed:
 
 - [XAMPP](https://www.apachefriends.org/download.html) (or equivalent stack with):
   - [Apache Server](https://netbeans.apache.org/front/main/download/)
-  - MySQL Database
+  - [MySQL Database](https://dev.mysql.com/downloads/mysql/)
   - PHP
 
 ---
