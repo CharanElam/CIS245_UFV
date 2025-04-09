@@ -1,24 +1,24 @@
 # CIS245_UFV
 # Patient Management System
 
-## 📌 Overview
+## Overview
 
 The **Patient Management System** is a web-based application developed for the **CIS 245: Intermediate Web Programming** course at the **University of the Fraser Valley (UFV)**. It allows medical staff to efficiently manage patient records, including functionalities for user authentication, record entry, and secure data retrieval.
 
 ---
 
-## 🚀 Features
+## Features
 
-- 🔐 **User Authentication** (Login & Registration)
-- 📝 **Patient Records Management** (Add, View, Update)
-- 👨‍⚕️ **Role-Based Dashboards**
+- **User Authentication** (Login & Registration)
+- **Patient Records Management** (Add, View, Update)
+- **Role-Based Dashboards**
   - Staff Dashboard
   - Patient Dashboard
-- 📱 **Responsive Design** (Works on all screen sizes)
+- **Responsive Design** (Works on all screen sizes)
 
 ---
 
-## ⚙️ Prerequisites
+## Prerequisites
 
 Before running the application locally, ensure you have the following installed:
 
@@ -29,14 +29,14 @@ Before running the application locally, ensure you have the following installed:
 
 ---
 
-## 🛠️ Installation Steps
+## Installation Steps
 
 ### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/CharanElam/CIS245_UFV.git
 
-### 2. 📥 Import the Database
+### 2. Import the Database
 
 1. Launch **phpMyAdmin** or your preferred **MySQL client**.
 2. Create a **new database** (e.g., `cis245_db`).
@@ -47,7 +47,7 @@ git clone https://github.com/CharanElam/CIS245_UFV.git
      - Choose the `CIS245_database.sql` file from your system.
      - Click **Go** to execute the import.
 
-### 3. ⚙️ Configure the Database Connection
+### 3. Configure the Database Connection
 
 - Open the file `connection.php` and update the credentials:
 
@@ -57,11 +57,11 @@ $username = "your_mysql_username";
 $password = "your_mysql_password";
 $dbname = "cis245_db"; // or the name you used
 
-### 4. 📂 Move Project Files to Server Directory
+### 4. Move Project Files to Server Directory
 
 - Copy the entire folder into `htdocs/` if using **XAMPP** (or equivalent web root folder).
 
-### 5. 🖥️ Start Server & Run the Application
+### 5. Start Server & Run the Application
 
 - Open the **XAMPP Control Panel**, start **Apache** and **MySQL**.
 - Visit the app in your browser:
@@ -69,7 +69,7 @@ $dbname = "cis245_db"; // or the name you used
 ```bash
 http://localhost/CIS245_UFV/index.php
 
-## 📁 Project Structure
+## Project Structure
 
 ```bash
 CIS245_UFV/
@@ -86,7 +86,7 @@ CIS245_UFV/
 ├── images/                # Contains logos and headers
 └── CIS245_database.sql    # Database schema file
 
-## 👥 Usage
+## Usage
 
 ### For Staff
 
