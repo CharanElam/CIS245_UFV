@@ -3,7 +3,7 @@
 
 ## Overview
 
-The **Patient Management System** is a web-based application developed for the **CIS 245: Intermediate Web Programming** course at the **University of the Fraser Valley (UFV)**. It allows medical staff to efficiently manage patient records, including functionalities for user authentication, record entry, and secure data retrieval.
+The **Patient Management System** is a web-based application developed for the **CIS 245: Intermediate Web Programming** (Winter 2025) course at the **University of the Fraser Valley (UFV)**. It allows medical staff to efficiently manage patient records, including functionalities for user authentication, record entry, and secure data retrieval.
 
 ---
 
